@@ -45,6 +45,16 @@
 			path = DropShelfUITests;
 			sourceTree = "<group>";
 		};
+		4AA641C32FD08A570019F029 /* core */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = core;
+			sourceTree = "<group>";
+		};
+		4AA641D22FD08AEC0019F029 /* Features */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Features;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +89,8 @@
 				4AA641A52FD089110019F029 /* DropShelfTests */,
 				4AA641AF2FD089110019F029 /* DropShelfUITests */,
 				4AA641942FD0890F0019F029 /* Products */,
+				4AA641C32FD08A570019F029 /* core */,
+				4AA641D22FD08AEC0019F029 /* Features */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +121,8 @@
 			);
 			fileSystemSynchronizedGroups = (
 				4AA641952FD0890F0019F029 /* DropShelf */,
+				4AA641C32FD08A570019F029 /* core */,
+				4AA641D22FD08AEC0019F029 /* Features */,
 			);
 			name = DropShelf;
 			packageProductDependencies = (

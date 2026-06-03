@@ -6,27 +6,28 @@
 //
 
 import SwiftUI
-import SwiftData
+import Combine
+
+class AppDelegate: NSObject, NSApplicationDelegate {
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        NSApp.setActivationPolicy(.accessory)
+        
+        ShakeDetector.shared.onShake = {
+            WindowManager.shared.showShelf()
+        }
+        ShakeDetector.shared.start()
+    }
+}
 
 @main
 struct DropShelfApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        MenuBarExtra("DropShelf", systemImage: "tray.and.arrow.down.fill") {
+            Button("Quit") {
+                NSApplication.shared.terminate(nil)
+            }
         }
-        .modelContainer(sharedModelContainer)
     }
 }
